@@ -54,6 +54,20 @@ it needs.*
 
 ---
 
+## What's Being Worked On
+
+**Active phase: Architectural definition — populating core documentation stubs.**
+
+- `README.md` — drafted ✅
+- `ARCHITECTURE.md` — stub, needs content
+- `docs/open-questions.md` — stub, needs content
+- `spec/` — module specs not yet started
+
+Next milestone: First pass of `ARCHITECTURE.md` — stack overview and
+AT Protocol + blockchain integration model.
+
+---
+
 ## Known Integrations
 
 | Project | Role | Repo |
@@ -68,9 +82,21 @@ TheNetwork/
 ├── docs/ Vision, use cases, open questions, research threads
 ├── spec/ Module-level technical specifications
 ├── integrations/ Integration notes for connected projects
+├── System/ Agent tooling — seed prompt, engineer guide, bug ledger
 └── ARCHITECTURE.md Full stack overview
 
 text
+
+---
+
+## Who Should Read What
+
+| You are... | Start here |
+|---|---|
+| **Understanding the project** | This file — then [`ARCHITECTURE.md`](ARCHITECTURE.md) |
+| **Reviewing open decisions** | [`docs/open-questions.md`](docs/open-questions.md) |
+| **An AI engineering agent** | [`System/SEED_PROMPT.md`](System/SEED_PROMPT.md) — read this before anything else |
+| **A contributing developer** | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 
 ---
 
@@ -86,4 +112,5 @@ that must be resolved before any module moves to implementation.
 
 ---
 
-*Built by TechSpecific. Montezuma County, Colorado.*
+*HarterHill Network — Montezuma County, Colorado.*
+*Built by TechSpecific / KuztomTech7850.*
