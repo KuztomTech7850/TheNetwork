@@ -74,6 +74,7 @@ AT Protocol + blockchain integration model.
 |---|---|---|
 | **Chuck's List** | Community bulletin board use case | [ChucksList_Builder](https://github.com/KuztomTech7850/ChucksList_Builder) |
 | **HolistiveHive** | Personal dashboard / Network client app | [HolistiveHive_App](https://github.com/KuztomTech7850/HolistiveHive_App) |
+| **TechSpecific Website** | Business site / public hub linking Network properties | TechSpecific_Website |
 
 ---
 

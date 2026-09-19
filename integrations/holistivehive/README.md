@@ -23,5 +23,11 @@ is already listed in its integration stack as "Community backbone."
 - Private pillars (health, finances, household) — never sent to The Network
 - HolistiveHive's Five Pillar schema — Network-agnostic, configurable per operator
 
+## Cross-Project Connector
+Identity (DID) is the shared connector across all Network integrations —
+Chuck's List, HolistiveHive, and TechSpecific_Website. The same portable
+DID used to sign into HolistiveHive works across every other connected
+property.
+
 ## Status
 > Architecture aligned. Implementation begins at HolistiveHive Phase 2.

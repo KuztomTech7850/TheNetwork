@@ -21,6 +21,12 @@ The Board module is the primary integration point.
 - Zoho Campaigns email delivery (runs alongside the board)
 - The two-pipeline architecture (Bulletin + Events)
 
+## Cross-Project Connector
+Identity (DID) is the shared connector across all Network integrations —
+Chuck's List, HolistiveHive, and TechSpecific_Website. A submitter's DID
+(once the Identity module lands) is the same identity used to log into
+any Network-connected property.
+
 ## Status
 > Not started. Integration begins when the Board module spec is complete
 > and the Phase 3 GUI design begins.
