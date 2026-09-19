@@ -1,6 +1,16 @@
 # Spec — Voting Module
 
 > Status: Draft | Version: 0.1 | Date: 2026-06-05
+>
+> **v0.2 note:** This module is superseded by
+> [`spec/governance/README.md`](../governance/README.md), which defines
+> the full Proposal → Ballot → Tally → DecisionRecord lifecycle,
+> starting with visible/signed ballots and a deterministic application
+> tally (Phase 5). AO compute, Arweave vote-proof storage, and on-chain
+> anchoring below apply only at Phase 8 (cryptographic voting and
+> external anchoring), not to the initial implementation. See
+> [`docs/adr/0007-defer-transferable-token.md`](../../docs/adr/0007-defer-transferable-token.md)
+> for the related token-weighted-voting prohibition.
 
 ## Objective
 Define proposal creation, ballot submission, tally computation, and

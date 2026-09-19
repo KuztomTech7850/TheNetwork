@@ -1,6 +1,14 @@
 # Spec — Storage Module
 
 > Status: Draft | Version: 0.1 | Date: 2026-06-05
+>
+> **v0.2 note:** The permanent (Arweave) mode requires the data-
+> classification gate defined in
+> [`docs/DATA_CLASSIFICATION.md`](../../docs/DATA_CLASSIFICATION.md) —
+> only T0 (Public), per-record opt-in data may reach Arweave. Local and
+> server-assisted modes below map to PostgreSQL + encrypted
+> S3-compatible object storage in the initial modular monolith. See
+> [`docs/adr/0003-private-storage-boundary.md`](../../docs/adr/0003-private-storage-boundary.md).
 
 ## Objective
 Define how profile capsules, community records, and large blobs are

@@ -1,6 +1,14 @@
 # Spec — Board Module
 
 > Status: Draft | Version: 0.1 | Date: 2026-06-05
+>
+> **v0.2 note:** The Board module evolves into the shared typed-content
+> model in [`spec/content/README.md`](../content/README.md), where a
+> Board listing is one `ContentItem` type (`Listing`) among several.
+> ATProto Lexicons/AppView indexing described below now apply at the
+> Federation phase (Phase 7), not to the initial PostgreSQL-backed
+> implementation. See
+> [`docs/adr/0006-atproto-as-portability-layer.md`](../../docs/adr/0006-atproto-as-portability-layer.md).
 
 ## Objective
 A community bulletin board for listings, events, and announcements —

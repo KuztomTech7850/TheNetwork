@@ -1,0 +1,38 @@
+name: Bug Report
+description: Something is broken or behaves incorrectly
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: security-impact
+    attributes:
+      label: Security impact
+      description: If this involves a possible vulnerability, do not file publicly — see docs/security/INCIDENT_RESPONSE.md for private disclosure.
+      options:
+        - None
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: input
+    id: epic
+    attributes:
+      label: Related Epic / Milestone

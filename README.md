@@ -27,13 +27,19 @@ it needs.*
 
 ## Core Modules
 
+> v0.2 reframes these as modules of a single **modular monolith**, with
+> AT Protocol, Matrix, and blockchain anchoring introduced later as
+> adapters. See [`docs/ENGINEERING_DEEP_DIVE.md`](docs/ENGINEERING_DEEP_DIVE.md).
+
 | Module | Purpose | Status |
 |---|---|---|
-| **Identity** | Portable, user-controlled profile via ATProto DID | 🔵 Spec in progress |
-| **Voting** | Egalitarian governance — proposals, ballots, tamper-evident results | 🔵 Spec in progress |
-| **Messaging** | Federated, encrypted communication (Matrix-based) | 🔵 Spec in progress |
-| **Board** | Community bulletin board — listings, events, announcements | 🔵 Spec in progress |
-| **Storage** | Local-first profile capsule + optional server sync + Arweave permanence | 🔵 Spec in progress |
+| **Identity** | Actor model (Account, Person, Organization, Membership, Role) — portable DID added later as a federation adapter | 🔵 Spec in progress |
+| **Governance** | Egalitarian governance — proposals, ballots, tamper-evident results | 🔵 Spec in progress |
+| **Content** | Typed community content — announcements, listings, events, discussions | 🔵 Spec in progress |
+| **Records** | Encrypted document vault, versioning, succession — the Family Trust MVP core | 🔵 Spec in progress |
+| **Messaging** | In-app async discussion first; Matrix as a later adapter | 🔵 Spec in progress |
+| **Storage** | PostgreSQL + encrypted object storage; Arweave permanence is an opt-in, T0-only adapter | 🔵 Spec in progress |
+| **Economy** | Internal non-transferable ledger; transferable tokens deferred pending legal review | 🔵 Spec in progress |
 
 ---
 
@@ -56,15 +62,21 @@ it needs.*
 
 ## What's Being Worked On
 
-**Active phase: Architectural definition — populating core documentation stubs.**
+**Active phase: Engineering Foundation v0.2 — modular monolith, identity-first
+sequencing, Family Trust MVP scope.**
 
-- `README.md` — drafted ✅
-- `ARCHITECTURE.md` — stub, needs content
-- `docs/open-questions.md` — stub, needs content
-- `spec/` — module specs not yet started
+- `README.md` / `ARCHITECTURE.md` — updated for v0.2 ✅
+- `docs/ROADMAP.md`, `docs/ENGINEERING_DEEP_DIVE.md` — drafted ✅
+- `docs/adr/0001`–`0007` — seven founding decision records drafted ✅
+- `docs/DATA_CLASSIFICATION.md`, `docs/RISK_REGISTER.md`, `docs/security/` — drafted ✅
+- `spec/core/`, `spec/records/`, `spec/content/`, `spec/governance/`,
+  `spec/economy/`, `spec/federation/` — new module contracts drafted ✅
+- Legacy `spec/identity`, `spec/messaging`, `spec/board`, `spec/storage`,
+  `spec/voting` — annotated with v0.2 notes, retained for research history
 
-Next milestone: First pass of `ARCHITECTURE.md` — stack overview and
-AT Protocol + blockchain integration model.
+Next milestone: **Milestone 0 (Foundation)** — operator sign-off on the
+modular-monolith decision, then begin Milestone 1 (Secure family shell).
+See [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 ---
 
@@ -80,10 +92,10 @@ AT Protocol + blockchain integration model.
 
 ## Repository Layout
 TheNetwork/
-├── docs/ Vision, use cases, open questions, research threads
-├── spec/ Module-level technical specifications
+├── docs/ Vision, use cases, open questions, research threads, ADRs, roadmap
+├── spec/ Module-level technical specifications (core, identity, records, content, governance, economy, messaging, storage, federation)
 ├── integrations/ Integration notes for connected projects
-├── System/ Agent tooling — seed prompt, engineer guide, bug ledger
+├── .github/ Issue/PR templates, CODEOWNERS, workflows
 └── ARCHITECTURE.md Full stack overview
 
 text
@@ -95,20 +107,25 @@ text
 | You are... | Start here |
 |---|---|
 | **Understanding the project** | This file — then [`ARCHITECTURE.md`](ARCHITECTURE.md) |
-| **Reviewing open decisions** | [`docs/open-questions.md`](docs/open-questions.md) |
-| **An AI engineering agent** | [`System/SEED_PROMPT.md`](System/SEED_PROMPT.md) — read this before anything else |
+| **Planning or prioritizing work** | [`docs/ROADMAP.md`](docs/ROADMAP.md) and [`docs/PROJECT_GOVERNANCE.md`](docs/PROJECT_GOVERNANCE.md) |
+| **Reviewing open decisions** | [`docs/open-questions.md`](docs/open-questions.md) and [`docs/adr/`](docs/adr/) |
+| **An AI engineering agent** | [`docs/AGENT_SEED.md`](docs/AGENT_SEED.md) — read this before anything else |
 | **A contributing developer** | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 
 ---
 
 ## Status
 
-This repository is in **architectural definition** phase. No production code
-exists yet. All files are living documents — dated, versioned, and open for
-revision as decisions are made.
+This repository is in **architectural definition** phase, now sequenced
+under **Engineering Foundation v0.2**: a modular monolith for a Family
+Trust MVP first, with AT Protocol, Matrix, and blockchain/Arweave
+introduced later as adapters. No production code exists yet. All files
+are living documents — dated, versioned, and open for revision as
+decisions are made.
 
-See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the current stack overview.
-See [`docs/open-questions.md`](docs/open-questions.md) for the open decisions
+See [`ARCHITECTURE.md`](ARCHITECTURE.md) for the current stack overview,
+[`docs/ROADMAP.md`](docs/ROADMAP.md) for the phased feature sequence, and
+[`docs/open-questions.md`](docs/open-questions.md) for the open decisions
 that must be resolved before any module moves to implementation.
 
 ---

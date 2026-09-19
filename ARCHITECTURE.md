@@ -1,11 +1,50 @@
 # The Network — Architecture Overview
 
-> Last updated: 2026-06-05
-> Status: Draft v0.1
+> Last updated: 2026-09-18
+> Status: Draft v0.2 — see [`docs/ENGINEERING_DEEP_DIVE.md`](docs/ENGINEERING_DEEP_DIVE.md)
+> and [`docs/adr/`](docs/adr/) for the full v0.2 reasoning.
 
 ---
 
-## Stack Summary
+## v0.2 Reframing — Modular Monolith First
+
+The stack below (AT Protocol, AO, Arweave/Irys, an EVM-compatible L2,
+Matrix) remains the long-term vision, but **implementation starts with a
+single modular monolith**, not six simultaneously-integrated distributed
+systems. See [`docs/adr/0001-modular-monolith-first.md`](docs/adr/0001-modular-monolith-first.md).
+
+Initial modules (one deployable application):
+
+- Identity and access
+- Communities and membership
+- Documents and records
+- Posts and discussions
+- Proposals and voting
+- Notifications
+- Audit events
+- Integration adapters
+
+Each layer below becomes an **adapter** introduced at its phase gate in
+[`docs/ROADMAP.md`](docs/ROADMAP.md), not a day-one dependency:
+
+| Layer | Adapter status | Phase gate | ADR |
+|---|---|---|---|
+| Identity (ATProto DID) | Federation/portability adapter, not the core identity model | Phase 7 | ADR-0002, ADR-0006 |
+| Data (ATProto Lexicons/AppView) | Portability layer over PostgreSQL system of record | Phase 7 | ADR-0006 |
+| Compute (AO) | Deferred; deterministic application tally used first | Phase 8 | — |
+| Permanence (Arweave/Irys) | Optional publication adapter, T0-only, opt-in per record | Phase 8 | ADR-0003 |
+| Finality (blockchain) | Optional hash anchoring only | Phase 8 | ADR-0003 |
+| Application (Matrix) | Adapter behind `ConversationProvider`, not core messaging | Phase 6 | ADR-0005 |
+
+Core Phase 0–6 data lives in PostgreSQL + encrypted S3-compatible object
+storage, per [`docs/adr/0003-private-storage-boundary.md`](docs/adr/0003-private-storage-boundary.md).
+See [`docs/DATA_CLASSIFICATION.md`](docs/DATA_CLASSIFICATION.md) for the
+tiering gate that governs what may ever reach a permanence/publication
+adapter.
+
+---
+
+## Stack Summary (long-term vision)
 
 The Network is a six-layer architecture. Each layer has a defined role and
 a clear boundary with the layers above and below it.
@@ -117,4 +156,18 @@ text
 
 ---
 
-*See individual spec folders for module-level detail.*
+## Fundamental Domain Model (v0.2)
+
+The modular monolith's aggregates — Actor, Community, Content,
+Governance, Records, Economy — are defined in
+[`spec/core/domain-model.md`](spec/core/domain-model.md), with
+authorization rules in [`spec/core/authorization.md`](spec/core/authorization.md)
+and the audit-event contract in [`spec/core/audit-events.md`](spec/core/audit-events.md).
+This model is established *before* any of the adapters above are built —
+see [`docs/ROADMAP.md`](docs/ROADMAP.md) Phase 0–3.
+
+---
+
+*See individual spec folders for module-level detail, and
+[`docs/ENGINEERING_DEEP_DIVE.md`](docs/ENGINEERING_DEEP_DIVE.md) for the
+full v0.2 engineering rationale.*

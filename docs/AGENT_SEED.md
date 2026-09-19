@@ -37,9 +37,10 @@ Goals are ordered. Complete one before starting the next.
 
 | # | Goal | Status |
 |---|---|---|
-| 1 | Populate core documentation stubs (README, ARCHITECTURE, CONTRIBUTING) | ⏳ |
-| 2 | Define architecture: AT Protocol + blockchain integration model | ⏳ |
-| 3 | Specify egalitarian voting mechanism and consensus approach | ⏳ |
+| 1 | Populate core documentation stubs (README, ARCHITECTURE, CONTRIBUTING) | ✅ |
+| 2 | Engineering Foundation v0.2 — modular monolith, identity-first sequencing, ADRs, roadmap, data classification, threat model | ✅ (drafted 2026-09-18) |
+| 3 | Milestone 0 (Foundation) — operator sign-off on modular-monolith decision; CI, testing, migrations, dev containers | ⏳ |
+| 4 | Milestone 1 (Secure family shell) — accounts, membership, roles, recovery, audit viewer, backup/restore | ⏳ |
 
 > Operator maintains this table. Agent proposes updates. Operator commits.
 
@@ -117,16 +118,28 @@ Do not introduce dependencies that break portability.
 
 ## 6. PROJECT-SPECIFIC FACTS
 
-- **Current phase:** Early scaffold — architecture and research stage.
-- **Repo structure:** `docs/`, `spec/`, `integrations/` directories exist;
-  all files are stubs as of 2026-06-05.
-- **Primary domains:** Blockchain architecture, AT Protocol federation,
-  egalitarian voting mechanisms, transparent data-sharing structures.
-- **No production system exists.** All work is research, design, and documentation.
-- **No entry point, CLI, or deployment target yet** — these will emerge from
-  the architecture phase.
-- **Bug list not yet applicable.** Use Section 3 goal tracking until a
-  codebase exists. Introduce `System/BUG_LIST.md` when active development begins.
+- **Current phase:** Engineering Foundation v0.2 drafted — modular
+  monolith, identity-first sequencing, Family Trust MVP scope, ADRs,
+  roadmap, data classification, and initial threat model in place.
+- **Repo structure:** `docs/`, `spec/`, `integrations/`, `.github/` exist.
+  `docs/adr/` holds seven founding decision records. `spec/core/` holds
+  the shared domain model, authorization, audit-event, and integration-
+  contract specs; `spec/records`, `spec/content`, `spec/governance`,
+  `spec/economy`, `spec/federation` are new v0.2 module folders. Legacy
+  `spec/identity`, `spec/messaging`, `spec/board`, `spec/storage`,
+  `spec/voting` are annotated, not deleted.
+- **Primary domains:** Modular-monolith application (PostgreSQL + WebAuthn
+  + encrypted object storage) first; AT Protocol federation, Matrix
+  messaging, blockchain anchoring, and community economics are adapters
+  gated by `docs/ROADMAP.md` phases.
+- **No production system exists.** All work is research, design, and
+  documentation until Milestone 0/1 begin implementation.
+- **No entry point, CLI, or deployment target yet** — these emerge
+  starting at Milestone 0 (Docker Compose baseline, per
+  `docs/ENGINEERING_DEEP_DIVE.md` §9).
+- **Bug list not yet applicable.** Use `docs/ROADMAP.md` epic/milestone
+  tracking until a codebase exists. Introduce `System/BUG_LIST.md` when
+  active development begins.
 
 ***
 

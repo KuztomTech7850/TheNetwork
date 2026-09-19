@@ -1,0 +1,39 @@
+name: Architecture Decision Proposal
+description: Propose a new ADR for docs/adr/ (see docs/PROJECT_GOVERNANCE.md)
+labels: ["architecture", "decision-needed"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        An ADR is required before adding a new load-bearing runtime dependency,
+        changing the actor/identity model, changing the storage/permanence
+        boundary, or introducing/removing an integration adapter.
+        See docs/PROJECT_GOVERNANCE.md.
+  - type: input
+    id: title
+    attributes:
+      label: Proposed ADR title
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Proposed decision
+    validations:
+      required: true
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Consequences
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

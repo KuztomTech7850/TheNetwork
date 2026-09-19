@@ -1,6 +1,13 @@
 # Spec — Messaging Module
 
 > Status: Draft | Version: 0.1 | Date: 2026-06-05
+>
+> **v0.2 note:** Matrix is implemented as an adapter behind an abstract
+> `ConversationProvider` interface, introduced at Phase 6 — not a core
+> dependency. In-app asynchronous comments, mentions, and notifications
+> ship first (Phase 4/6). See
+> [`docs/adr/0005-matrix-as-adapter.md`](../../docs/adr/0005-matrix-as-adapter.md)
+> and [`spec/core/integration-contracts.md`](../core/integration-contracts.md).
 
 ## Objective
 Provide federated, encrypted communication for community members

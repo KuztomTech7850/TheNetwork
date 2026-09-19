@@ -1,0 +1,70 @@
+name: Feature / Task
+description: Work item tied to an Epic and Milestone in docs/ROADMAP.md
+labels: []
+body:
+  - type: dropdown
+    id: epic
+    attributes:
+      label: Epic
+      options:
+        - Engineering governance and decision records
+        - Identity, membership, and authorization
+        - Audit, storage, and recovery
+        - Family Trust records
+        - Community content and moderation
+        - Proposals and voting
+        - Messaging integration
+        - Federation and portability
+        - Verifiable records and anchoring
+        - Community economics
+        - Municipal-readiness program
+    validations:
+      required: true
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      description: e.g. "Milestone 1 — Secure family shell"
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
+  - type: textarea
+    id: security-impact
+    attributes:
+      label: Security impact
+      description: none / low / medium / high — explain. See docs/security/THREAT_MODEL.md.
+    validations:
+      required: true
+  - type: textarea
+    id: data-classification
+    attributes:
+      label: Data classification
+      description: Which record types are involved and their tier (docs/DATA_CLASSIFICATION.md)?
+    validations:
+      required: true
+  - type: input
+    id: decision-dependency
+    attributes:
+      label: Decision dependency
+      description: Related ADR (docs/adr/) or open question (docs/open-questions.md), if any.
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: documentation-impact
+    attributes:
+      label: Documentation impact
+      description: Which docs/spec files will need updates?
